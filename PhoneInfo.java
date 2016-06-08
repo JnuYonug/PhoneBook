@@ -22,7 +22,9 @@ public class PhoneInfo {
 	public void showInfo() {
 		System.out.println("name : " + name);
 		System.out.println("phone : " + phoneNumber);
-		System.out.println("birth : " + birthday);		 
+		if(birthday != null) {
+			System.out.println("birth : " + birthday);		 
+		}
 	}
 }
 
