@@ -74,15 +74,44 @@ public class PhoneBookManager {
 			return;
 		}
 		
-		String name, phoneNumber, birthday;
+		String name, phoneNumber, major, company;
+		int year, sel=1;
 		
 		System.out.println("데이터 입력을 시작합니다 . .");
+		do {
+			if(sel != 1) {
+				System.out.println("다시 입력해주세요!\n");
+			}
+			System.out.println("1. 일반, 2. 대학, 3. 회사");
+			System.out.print("선택 >> ");
+			
+			sel = sc.nextInt(); sc.nextLine();
+		} while(sel<1 || sel>3);
+		
 		System.out.print("이름 : "); name = sc.nextLine();
 		System.out.print("전화번호 : "); phoneNumber = sc.nextLine();
-		System.out.print("생년월일 : "); birthday = sc.nextLine();
 		
-		arr[cnt++] = new PhoneInfo(name, phoneNumber, birthday);
-	
+		PhoneInfo tmp = null;
+		switch(sel) 
+		{
+		case 1:
+			tmp = new PhoneInfo(name, phoneNumber);
+			break;
+		case 2:
+			System.out.print("전공 : "); major = sc.nextLine();
+			System.out.print("학년 : "); year = sc.nextInt();
+			
+			tmp = new PhoneUnivInfo(name, phoneNumber, major, year);
+			break;
+		case 3:
+			System.out.print("회사 : "); company = sc.nextLine();
+			
+			tmp = new PhoneCompanyInfo(name, phoneNumber, company);
+			break;
+		}
+		
+		arr[cnt++] = tmp;
+			
 		System.out.println("데이터 입력이 완료되었습니다.");
 	}
 }

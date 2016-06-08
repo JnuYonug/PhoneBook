@@ -1,4 +1,3 @@
-
 public class PhoneInfo {
 	private String name;
 	private String phoneNumber;
