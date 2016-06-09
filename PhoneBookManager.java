@@ -1,18 +1,25 @@
 import java.util.Scanner;
 
 public class PhoneBookManager {
-	public final Scanner sc = new Scanner(System.in);
-	private final int MAX_CNT;
+	private static PhoneBookManager instance = null; 
 	
-	private PhoneInfo[] arr;
+	public final Scanner sc = new Scanner(System.in);
+	private final int MAX_CNT = 100;
+	
+	private final PhoneInfo[] arr;
 	private int cnt = 0;
 	
-	public PhoneBookManager(int cap) {
-		MAX_CNT = cap;
-		arr = new PhoneInfo[cap];
+	private PhoneBookManager() {
+		arr = new PhoneInfo[100];
+		instance = this;
 	}
-
 	
+	public static PhoneBookManager getInstance() {
+		if(instance == null) {
+			instance = new PhoneBookManager();
+		}
+		return instance;
+	}
 	
 	public void showMenu() {
 		System.out.println("선택하세요 . . .");
@@ -31,9 +38,7 @@ public class PhoneBookManager {
 		}
 		return -1;
 	}
-	
-	
-	
+
 	public void searchData() {
 		System.out.println("데이터 검색을 시작합니다 . .");
 	
@@ -94,16 +99,16 @@ public class PhoneBookManager {
 		PhoneInfo tmp = null;
 		switch(sel) 
 		{
-		case 1:
+		case Type.USUAL :
 			tmp = new PhoneInfo(name, phoneNumber);
 			break;
-		case 2:
+		case Type.UNIV :
 			System.out.print("전공 : "); major = sc.nextLine();
 			System.out.print("학년 : "); year = sc.nextInt();
 			
 			tmp = new PhoneUnivInfo(name, phoneNumber, major, year);
 			break;
-		case 3:
+		case Type.COMP :
 			System.out.print("회사 : "); company = sc.nextLine();
 			
 			tmp = new PhoneCompanyInfo(name, phoneNumber, company);
