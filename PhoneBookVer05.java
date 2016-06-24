@@ -8,18 +8,18 @@ loop:	while(true) {
 			int sel = manager.sc.nextInt(); 
 			System.out.println(manager.sc.nextLine());
 			
-			switch(sel)
+			switch(MENU.intToMENU(sel))
 			{
-			case Menu.INPUT :
+			case INPUT :
 				manager.readData();
 				break;
-			case Menu.SEARCH :
+			case SEARCH :
 				manager.searchData();
 				break;
-			case Menu.DELETE :
+			case DELETE :
 				manager.removeData();
 				break;
-			case Menu.EXIT :
+			case EXIT :
 				break loop;
 				
 			default:

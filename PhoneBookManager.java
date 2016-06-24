@@ -80,7 +80,7 @@ public class PhoneBookManager {
 		}
 		
 		String name, phoneNumber, major, company;
-		int year, sel=1;
+		int year, sel=1;		
 		
 		System.out.println("데이터 입력을 시작합니다 . .");
 		do {
@@ -97,18 +97,19 @@ public class PhoneBookManager {
 		System.out.print("전화번호 : "); phoneNumber = sc.nextLine();
 		
 		PhoneInfo tmp = null;
-		switch(sel) 
+		switch(TYPE.intToTYPE(sel)) 
 		{
-		case Type.USUAL :
+		case USUAL :
 			tmp = new PhoneInfo(name, phoneNumber);
 			break;
-		case Type.UNIV :
+		case UNIV :
 			System.out.print("전공 : "); major = sc.nextLine();
 			System.out.print("학년 : "); year = sc.nextInt();
 			
 			tmp = new PhoneUnivInfo(name, phoneNumber, major, year);
 			break;
-		case Type.COMP :
+			
+		case COMP :
 			System.out.print("회사 : "); company = sc.nextLine();
 			
 			tmp = new PhoneCompanyInfo(name, phoneNumber, company);

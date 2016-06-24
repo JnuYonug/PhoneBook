@@ -1,3 +1,14 @@
-public interface Type {
-	int USUAL=1, UNIV=2, COMP=3;
+public enum TYPE {
+	USUAL, UNIV, COMP;
+	
+	private static final TYPE[] list = TYPE.values();
+	
+	public static TYPE intToTYPE(int n) {
+		for(TYPE t: list) {
+			if(t.ordinal()+1 == n) {
+				return t;
+			}
+		}
+		return null;
+	}
 }
