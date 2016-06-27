@@ -1,5 +1,5 @@
 public enum MENU {
-	INPUT, SEARCH, DELETE, EXIT;
+	INPUT, SEARCH, LIST, DELETE, EXIT;
 	
 	private static final MENU[] list = MENU.values();
 	
