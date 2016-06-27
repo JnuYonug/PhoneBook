@@ -131,7 +131,7 @@ public class PhoneBookManager {
 					arr[i] = arr[i+1];
 				}
 				
-				idx = searchIdx(name, idx+1);
+				idx = searchIdx(name, idx);
 			} while(idx != -1);
 	
 			System.out.println("데이터 삭제가 완료되었습니다.");

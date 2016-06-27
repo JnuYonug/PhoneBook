@@ -7,7 +7,6 @@ public class PhoneInfo implements Serializable {
 	private BigInteger[] encName;
 	private BigInteger[] encPhoneNumber;
 	
-	public PhoneInfo() { }
 	public PhoneInfo(String name, String phoneNumber) { 
 		this.name = name;
 		this.phoneNumber = phoneNumber;
@@ -17,7 +16,7 @@ public class PhoneInfo implements Serializable {
 		{
 			return;
 		}
-		
+
 		encryptAll();
 	}
 	
